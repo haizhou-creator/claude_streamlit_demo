@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+from pathlib import Path
+
+DATA_DIR = Path(__file__).parent / "data"
 
 # ── Config ────────────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -37,7 +40,7 @@ st.markdown(f"""
 # ── Data ──────────────────────────────────────────────────────────────────────
 @st.cache_data
 def load_data():
-    df = pd.read_csv("data/nba_all_seasons.csv", index_col=0)
+    df = pd.read_csv(DATA_DIR / "nba_all_seasons.csv", index_col=0)
     df.columns = df.columns.str.strip()
     df["draft_year"]   = pd.to_numeric(df["draft_year"],   errors="coerce")
     df["draft_round"]  = pd.to_numeric(df["draft_round"],  errors="coerce")
