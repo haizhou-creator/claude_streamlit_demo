@@ -4,7 +4,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from pathlib import Path
 
-DATA_DIR = Path(__file__).parent / "data"
+DATA_DIR = Path(__file__).parent
 
 # ── Config ────────────────────────────────────────────────────────────────────
 st.set_page_config(
